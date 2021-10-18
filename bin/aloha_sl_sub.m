@@ -84,6 +84,14 @@ for iter=1:N
     display([num2str(iter) '/' num2str(N) ', rank : ' num2str(r) ', iteration : ' num2str(endi)]);
     
     itermap(iter)=endi;
+    if mod(iter,10)==0
+        figure(100);
+        subplot(121);
+        imshow(abs(rimg), []);
+        subplot(122);
+        imshow(abs(rimg_E), []);
+        title("iter = "+num2str(iter));
+    end
 end
 
 %% normalization about overlapping
