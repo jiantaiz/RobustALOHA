@@ -1,4 +1,5 @@
 function [X,E,iter]=admm_hankel_sl(U,V,meas,meas_id,mu,beta,tau,tN,sizeM,sizeN,Nc,tolE,H,Hi)
+% 实现论文对应的 Eq[11-13]式
 meas_gpu=gpuArray(single(meas));
 r=size(U,2);
 I_gpu=gpuArray(single(eye(r)));

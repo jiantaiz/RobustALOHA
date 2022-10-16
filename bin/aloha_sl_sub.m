@@ -62,7 +62,7 @@ for iter=1:N
         case 'inc'
             % increading strategy
             opts.est_rank=2;
-            [U,V,~] = lmafit_mc_adp_single(m,n,1,ids,data_ids,opts);
+            [U,V,E] = lmafit_mc_adp_single(m,n,1,ids,data_ids,opts);
         case 'dec'
             % decreading strategy
             opts.est_rank=1;
@@ -82,16 +82,17 @@ for iter=1:N
     rimg_E(roiys,roixs,:)     = rimg_E(roiys,roixs,:)+E(hNfir+1:end-hNfir,hNfir+1:end-hNfir,:);
     map_count(roiys,roixs,:)  = map_count(roiys,roixs,:)+1;
     display([num2str(iter) '/' num2str(N) ', rank : ' num2str(r) ', iteration : ' num2str(endi)]);
-    
+    figure(100);
+    imshow(abs(rimg), []);
     itermap(iter)=endi;
-    if mod(iter,10)==0
-        figure(100);
-        subplot(121);
-        imshow(abs(rimg), []);
-        subplot(122);
-        imshow(abs(rimg_E), []);
-        title("iter = "+num2str(iter));
-    end
+%     if mod(iter,10)==0
+%         figure(100);
+%         subplot(121);
+%         imshow(abs(rimg), []);
+%         subplot(122);
+%         imshow(abs(rimg_E), []);
+%         title("iter = "+num2str(iter));
+%     end
 end
 
 %% normalization about overlapping

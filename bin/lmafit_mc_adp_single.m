@@ -11,8 +11,6 @@ function [X,Y,Out] = lmafit_mc_adp_single(m,n,k,Known,data,opts)
 %           Y --- k x n matrix
 %         Out --- output information
 % Input:
-%        m, n --- matrix sizes
-%           k --- rank estimate
 %        data --- values of known elements in a 1D row vector
 %       Known --- positions of known elements in a 1D row vector
 %                 assuming matrices are arranged column-wise
